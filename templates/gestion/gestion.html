@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión - Portal EduTecnica3139</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        
+        
+        main {   
+            display: inline;
+        }
+
+        main h1{
+            margin-bottom: 3%;
+        }
+        h2{ 
+            margin-left: 4%;
+            margin-bottom: 2%;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            grid-template-rows: repeat(1, 1fr); /* 2 filas */
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-item {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-style: double;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            background-color: #004466;
+            color: white;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .grid-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item p {
+            font-size: 1rem;
+        }
+
+        .grid-item .action-btn {
+            background-color: #006699;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .grid-item .action-btn:hover {
+            background-color: #004466;
+        }
+
+        /* Estilos para los grids de modificar entradas */
+        .modify-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            grid-template-rows: repeat(1, 1fr); /* 2 filas */
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .modify-grid-item {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-style: double;
+
+        }
+
+        .modify-grid-item:hover {
+            background-color: #f2a900;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .modify-grid-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #f2a900;
+        }
+
+        .modify-grid-item .action-btn {
+            background-color: #f2a900;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .modify-grid-item .action-btn:hover {
+            background-color: #004466;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('gestion.subirBlogs') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Gestión de Entradas</h1>
+
+        <!-- Añadir Nuevas Entradas -->
+        <section>
+            <h2>Añadir Nuevas Entradas</h2>
+            <div class="grid-container">
+                <!-- Subir Blog -->
+                <div class="grid-item">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Subir Blog</h3>
+                    <p>Agrega una nueva entrada de blog al portal.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.subirBlogs') }}'">Añadir Blog</button>
+                </div>
+
+                <!-- Subir Evento -->
+                <div class="grid-item">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h3>Subir Evento</h3>
+                    <p>Agrega un nuevo evento al portal.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.subirEvento') }}'">Añadir Evento</button>
+                </div>
+
+                <!-- Subir Novedad -->
+                <div class="grid-item">
+                    <i class="fas fa-bell"></i>
+                    <h3>Subir Novedad</h3>
+                    <p>Comparte novedades importantes.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.subirNovedades') }}'">Añadir Novedad</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modificar Entradas -->
+        <section>
+            <h2>Modificar Entradas</h2>
+            <div class="modify-grid-container">
+                <!-- Editar Evento -->
+                <div class="modify-grid-item">
+                    <i class="fas fa-edit"></i>
+                    <h3>Editar novedades</h3>
+                    <p>Edita la información de las novedades existentes.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.editarEventos') }}'">Editar Evento</button>
+                </div>
+
+                <!-- Eliminar Evento -->
+                <div class="modify-grid-item">
+                    <i class="fas fa-trash-alt"></i>
+                    <h3>Editar Blogs</h3>
+                    <p>Edita la información de los blogs existentes.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.editarBlogs') }}'">Editar Blogs</button>
+                </div>
+
+                <!-- Eliminar Evento -->
+                <div class="modify-grid-item">
+                    <i class="fas fa-trash-alt"></i>
+                    <h3>Editar eventos</h3>
+                    <p>Edita la información de los eventos existentes.</p>
+                    <button class="action-btn" onclick="window.location.href='{{ url_for('gestion.editarEventos') }}'">Editar Novedades</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <!-- Asegúrate de incluir los iconos de FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

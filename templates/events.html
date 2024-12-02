@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Proximos</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        h2, h3, h4, h5, p {
+            color: black;
+        }
+        footer p, h4 {
+            color: whitesmoke;
+        }
+    </style>
+
+    <main>
+        <section class="event-highlight">
+            <h1>Evento Destacado</h1>
+            <div class="highlight-content">
+                <div class="event-details">
+                    <h2>Continuamos compartiendo el éxito de la Expo Técnica 2024</h2>
+                    <p><strong>Ubicación:</strong> Escuela Técnica 3139, Salta, Argentina</p>
+                    <p><strong>Fecha y Hora:</strong> 15/11/2024 - 10:00</p>
+                    <p>La **Expo Técnica 2024** es una jornada única en nuestra institución donde se exponen los proyectos destacados del año. Los estudiantes presentan sus trabajos de investigación, avances técnicos y creaciones innovadoras frente a la comunidad educativa. Este evento fomenta el espíritu de colaboración, la creatividad y el compromiso académico. Además, contamos con stands interactivos, demostraciones en vivo y actividades que muestran el esfuerzo colectivo de estudiantes y docentes. ¡Un día para celebrar el talento y el esfuerzo en nuestra comunidad educativa!</p>
+                </div>
+                <div class="event-video">
+                    <h2>Video del Evento</h2>
+                    <iframe width="1903" height="1200" src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftecnica3139salta%2Fvideos%2F1249449662999159%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <h2>Próximos Eventos</h2>
+            <div class="event-card">
+                    <div class="card-content">
+                        <h3>Acto de Colación 2024 🎓</h3>
+                        <p><strong>Ubicación:</strong> SUM de la Escuela Técnica 3139</p>
+                        <p><strong>Fecha y Hora:</strong> 20/12/2024 - 18:00</p>
+                        <p>Despedimos a nuestros egresados con un emotivo acto de colación. Un momento especial para reconocer sus logros y el cierre de esta etapa educativa. ¡No te pierdas esta ceremonia llena de recuerdos y emociones!</p>
+                        <img src="{{ url_for('static', filename='dou/promo.jpg')}}" alt="Acto de Colación">
+                    </div>
+            </div>
+            <div class="event-card">
+                    <div class="card-content">
+                        <h3>Inscripción para el Termino del Ciclo Lectivo</h3>
+                        <p><strong>Ubicación:</strong> Plataforma en línea</p>
+                        <p><strong>Fecha Límite:</strong> 30/11/2024</p>
+                        <p>Regístrate para participar en las actividades de cierre del año lectivo. Desde ceremonias de clausura hasta eventos de integración. ¡Asegúrate de inscribirte a tiempo!</p>
+                        <img src="{{ url_for('static', filename='dou/imagen7.jpg')}}" alt="Cierre de Ciclo Lectivo">
+                    </div>
+            </div>
+        </aside>     
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script src="control.js"></script>
+</body>
+</html>

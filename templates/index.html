@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal EduTecnica</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-mobile.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <style>
+        /* Usamos url_for para generar la ruta de la imagen */
+        body{
+            background-image: url("{{ url_for('static', filename='recursos/Logos Register/white.jpg') }}");
+        }
+    </style>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+                <li><a href="{{ url_for('gestion.menuGestion') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="blog">
+                <h1>Las Ultimas Novedades</h1>
+                <p>Explora nuestras más recientes noticias sobre nuestra institución.</p>
+            </div>
+            <section class="articles-container">
+                <article>
+                        <h3><strong>INSCRIPCIONES 2025</strong></h3>
+                        <p>¡Comienza tu futuro técnico en la Escuela Técnica 3139! Las inscripciones para el ciclo lectivo 2025 ya están abiertas. Descubre nuestras especialidades, requisitos y cómo formar parte de nuestra comunidad educativa.</p>
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/1.jpg') }}" alt="Inscripciones abiertas en la Escuela Técnica 3139">
+                </article>
+                
+                <article>
+                        <h3><strong>Prácticas Profesionalizantes: Experiencias Reales en el Mundo Laboral</strong></h3>
+                        <p>Nuestros estudiantes participan activamente en proyectos como las prácticas en empresas como Trenes Argentinos. Conoce cómo estas experiencias forman a los técnicos del futuro y potencian su desarrollo profesional.</p>
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/foto seria.jpg') }}" alt="Estudiantes de la Escuela Técnica 3139 en sus prácticas profesionalizantes">
+                </article>
+                
+                <article>
+                        <h3><strong>Nueva Biblioteca Online: Recursos al Alcance de Todos</strong></h3>
+                        <p>La Escuela Técnica 3139 lanza su biblioteca online. Encuentra libros, manuales y recursos técnicos organizados por áreas de estudio. ¡Todo lo que necesitas para complementar tu aprendizaje, disponible en un clic!</p>
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/2.jpg') }}" alt="Nueva biblioteca online de la Escuela Técnica 3139">
+                </article>
+                
+                <article>
+                    
+                        <h3><strong>Foro Estudiantil: Intercambia Ideas y Proyectos</strong></h3>
+                        <p>Un nuevo espacio para conectar a la comunidad educativa. Comparte ideas, presenta trabajos y participa en debates sobre tecnología, ingeniería y más. ¡El foro de la Escuela Técnica 3139 te espera!</p>
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/3.jpg') }}" alt="Foro estudiantil de la Escuela Técnica 3139">
+                    
+                </article>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="{{ url_for('static', filename='control.js') }}"></script>
+</body>
+</html>

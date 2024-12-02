@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Novedades - Portal EduTecnica3139</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .modal-header {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+    
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        /* Estilo del formulario dentro del modal */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+        }
+    
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        input[type="time"],
+        input[type="file"] {
+            width: 100%;
+            padding: 1rem; /* Aumenta el padding para más espacio */
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+    
+        input[type="text"]:focus,
+        textarea:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="file"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+    
+        /* Hacer que el textarea sea más grande */
+        textarea {
+            min-height: 150px; /* Aumenta el tamaño del textarea */
+            resize: vertical;
+        }
+    
+        .date-time-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+    
+        .date-time-container div {
+            width: 48%;
+        }
+    
+        .file-container {
+            margin-top: 1rem;
+        }
+    
+        .file-container input[type="file"] {
+            padding: 1rem;
+            background-color: #f0f0f0;
+        }
+    
+        .preview-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+    
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        article {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 600px;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        article img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        article h3 {
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-info">
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('gestion.menuGestion') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="blog">
+                <h1>Las Últimas Novedades</h1>
+                <p>Explora nuestras más recientes noticias sobre nuestra institución.</p>
+            </div>
+            <section class="articles-container">
+                <!-- Novedad 1 -->
+                <article onclick="openModal(1)">
+                    <h3><strong>INSCRIPCIONES 2025</strong></h3>
+                    <p>¡Comienza tu futuro técnico en la Escuela Técnica 3139! Las inscripciones para el ciclo lectivo 2025 ya están abiertas...</p>
+                    <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/1.jpg') }}" alt="Inscripciones abiertas en la Escuela Técnica 3139">
+                </article>
+
+                <!-- Novedad 2 -->
+                <article onclick="openModal(2)">
+                    <h3><strong>Prácticas Profesionalizantes: Experiencias Reales en el Mundo Laboral</strong></h3>
+                    <p>Nuestros estudiantes participan activamente en proyectos como las prácticas en empresas como Trenes Argentinos...</p>
+                    <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/foto seria.jpg') }}" alt="Estudiantes de la Escuela Técnica 3139 en sus prácticas profesionalizantes">
+                </article>
+
+                <!-- Novedad 3 -->
+                <article onclick="openModal(3)">
+                    <h3><strong>Nueva Biblioteca Online: Recursos al Alcance de Todos</strong></h3>
+                    <p>La Escuela Técnica 3139 lanza su biblioteca online. Encuentra libros, manuales y recursos técnicos organizados...</p>
+                    <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/2.jpg') }}" alt="Nueva biblioteca online de la Escuela Técnica 3139">
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para editar novedad -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Editar Novedad</h2>
+            </div>
+            <form action="" method="POST">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título de la entrada" required>
+
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" placeholder="Escribe el contenido aquí" required></textarea>
+
+                <div class="date-time-container">
+                    <div>
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div>
+                        <label for="hora">Hora:</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+                </div>
+
+                <div class="file-container">
+                    <label for="imagenes">Subir imágen:</label>
+                    <input type="file" id="imagenes" name="imagenes" accept="image/*" multiple>
+                </div>
+
+                <div class="preview-container" id="imagePreview"></div>
+
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script>
+        // Modal open/close functions
+        function openModal(postId) {
+            document.getElementById('modal').style.display = "block";
+            // Add logic to prefill form based on selected postId (1, 2, or 3)
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+    </script>
+</body>
+</html>

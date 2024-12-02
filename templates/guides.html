@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia del estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="faq">
+            <h2>Índice de Preguntas Frecuentes</h2>
+            <ul>
+                <li><a href="#proyectos">¿Cómo organizar tus proyectos técnicos?</a></li>
+                <li><a href="#informes">¿Cómo presentar informes técnicos correctamente?</a></li>
+                <li><a href="#defensa">¿Cómo prepararte para la defensa de un proyecto final?</a></li>
+                <li><a href="#exposiciones">¿Cómo realizar una buena exposición oral?</a></li>
+                <li><a href="#conexion">¿Qué hacer si tienes problemas con la red escolar?</a></li>
+                <li><a href="#pasantias">¿Cómo aprovechar al máximo las prácticas profesionalizantes?</a></li>
+            </ul>
+        </aside>
+    
+        <section class="intro">
+            <style>
+                h1 {
+                    text-align: center;
+                }
+                .info-box {
+                    background-color: #f4f4f9;
+                    border: 1px solid #ddd;
+                    padding: 15px;
+                    margin: 15px 0;
+                    border-radius: 8px;
+                }
+                .info-box h3 {
+                    margin-top: 0;
+                    font-size: 1.2rem;
+                }
+                .info-box p {
+                    font-size: 1rem;
+                    margin: 5px 0;
+                }
+            </style>
+            <h1>Consejos para Estudiantes Técnicos</h1>
+            <p>Estudiar en una escuela técnica como la 3139 conlleva desafíos únicos que requieren preparación y organización. Desde proyectos complejos hasta prácticas profesionalizantes, es importante saber cómo enfrentar estas tareas. Aquí encontrarás consejos útiles y respuestas a las preguntas más comunes.</p>
+    
+            <h2 id="proyectos">Organización de Proyectos Técnicos</h2>
+            <p>La organización es clave para cumplir con los plazos y garantizar la calidad de los proyectos. Usa herramientas como listas de tareas, cronogramas y software colaborativo para dividir el trabajo y mantener un seguimiento constante del progreso. Trabajar en equipo y delegar responsabilidades puede marcar la diferencia.</p>
+    
+            <div class="info-box">
+                <h3>Consejos prácticos para la organización:</h3>
+                <div class="info-box">
+                    <p><strong>Dividir tareas:</strong> Asignar tareas específicas a cada miembro del equipo para agilizar el proceso.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Establecer plazos:</strong> Utilizar un cronograma para gestionar el tiempo de manera eficiente.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Reuniones periódicas:</strong> Hacer reuniones de seguimiento para revisar el progreso y resolver problemas.</p>
+                </div>
+            </div>
+    
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Herramienta</th>
+                            <th>Función</th>
+                            <th>Costo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trello</td>
+                            <td>Gestión de tareas</td>
+                            <td>Gratis</td>
+                        </tr>
+                        <tr>
+                            <td>Google Drive</td>
+                            <td>Almacenamiento y colaboración</td>
+                            <td>Gratis</td>
+                        </tr>
+                        <tr>
+                            <td>Notion</td>
+                            <td>Organización integral</td>
+                            <td>Gratis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <h2 id="informes">Presentación de Informes Técnicos</h2>
+            <p>Un buen informe técnico debe ser claro, conciso y detallado. Usa encabezados para estructurar la información, incluye imágenes o diagramas si es necesario y revisa la ortografía antes de entregarlo. Consultar informes anteriores puede ayudarte a entender lo que se espera.</p>
+    
+            <div class="info-box">
+                <h3>Claves para un buen informe técnico:</h3>
+                <div class="info-box">
+                    <p><strong>Claridad:</strong> Explica el proceso paso a paso sin ambigüedades.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Formato:</strong> Usa el formato adecuado (fuentes, márgenes, títulos). Siempre sigue las instrucciones de presentación.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Revisión:</strong> Revisa todo el informe antes de entregarlo. Revisa ortografía, coherencia y fluidez.</p>
+                </div>
+            </div>
+    
+            <h2 id="defensa">Defensa del Proyecto Final</h2>
+            <p>Preparar la defensa de tu proyecto final puede ser estresante, pero con práctica y preparación, puedes destacarte. Realiza simulacros con tus compañeros y practica responder preguntas técnicas relacionadas con tu proyecto. Es importante dominar tanto el contenido como la presentación.</p>
+    
+            <h2 id="exposiciones">Exposición Oral</h2>
+            <p>Hablar en público es una habilidad esencial para un técnico. Practica tus exposiciones, usa recursos visuales y asegúrate de hacer contacto visual con tu audiencia. Hablar con seguridad y de forma pausada mejora la comprensión y el impacto de tu mensaje.</p>
+    
+            <h2 id="conexion">Problemas con la Red Escolar</h2>
+            <p>Si tienes problemas para acceder a la red escolar, informa a un docente o al encargado de sistemas. Mientras tanto, utiliza tus datos móviles o descarga los materiales necesarios con antelación. Mantén una copia local de tus trabajos para evitar contratiempos.</p>
+    
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problema</th>
+                            <th>Solución Propuesta</th>
+                            <th>Tiempo Estimado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No hay conexión</td>
+                            <td>Reiniciar el router</td>
+                            <td>5 minutos</td>
+                        </tr>
+                        <tr>
+                            <td>Acceso denegado</td>
+                            <td>Solicitar permiso al administrador</td>
+                            <td>1 día</td>
+                        </tr>
+                        <tr>
+                            <td>Velocidad baja</td>
+                            <td>Usar una red alternativa</td>
+                            <td>Inmediato</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <h2 id="pasantias">Prácticas Profesionalizantes</h2>
+            <p>Las prácticas profesionalizantes son una oportunidad valiosa para aprender y ganar experiencia en el campo técnico. Asegúrate de cumplir con los horarios, preguntar cuando tengas dudas y demostrar iniciativa. Estas prácticas pueden abrirte puertas a futuras oportunidades laborales.</p>
+    
+            <div class="info-box">
+                <h3>Consejos para aprovechar las prácticas:</h3>
+                <div class="info-box">
+                    <p><strong>Iniciativa:</strong> Proponer soluciones y demostrar interés en aprender.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Comunicación:</strong> Mantén una comunicación fluida con tu supervisor o mentor.</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Responsabilidad:</strong> Cumple con los horarios y tareas asignadas de manera eficiente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+    
+    <script src="control.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Últimas Novedades - Portal EduTecnica3139</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        
+        .content-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .blog h1 {
+            color: #004466;
+            font-size: 2rem;
+        }
+
+        .articles-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-self: center;
+        }
+
+        article {
+            background-color: #fbf6f6e8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        article h3 {
+            color: #004466;
+        }
+
+        article p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        article img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilo del formulario dentro del modal */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        input[type="time"],
+        input[type="file"] {
+            width: 100%;
+            padding: 1rem; /* Aumenta el padding para más espacio */
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="file"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        /* Hacer que el textarea sea más grande */
+        textarea {
+            min-height: 150px; /* Aumenta el tamaño del textarea */
+            resize: vertical;
+        }
+
+        .date-time-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .date-time-container div {
+            width: 48%;
+        }
+
+        .file-container {
+            margin-top: 1rem;
+        }
+
+        .file-container input[type="file"] {
+            padding: 1rem;
+            background-color: #f0f0f0;
+        }
+
+        .preview-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info">
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('gestion.menuGestion') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="blog">
+                <h1>Evento Destacado</h1>
+                <p>Explora los detalles de nuestra Expo Técnica 2024 y otros eventos importantes de la escuela.</p>
+            </div>
+    
+            <section class="articles-container">
+                <article onclick="openModal(1)">
+                    <h3><strong>Continuamos compartiendo el éxito de la Expo Técnica 2024</strong></h3>
+                    <p>La Expo Técnica 2024 es una jornada única donde los estudiantes presentan sus trabajos de investigación, avances técnicos y creaciones innovadoras...</p>
+                    <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/expo_tecnica.jpg') }}" alt="Video Expo Técnica 2024">
+                </article>
+    
+                <article onclick="openModal(2)">
+                    <h3><strong>Acto de Colación 2024 🎓</strong></h3>
+                    <p>Un emotivo acto de colación para despedir a nuestros egresados. Un día lleno de recuerdos y emociones. ¡No te lo pierdas!</p>
+                    <img src="{{ url_for('static', filename='dou/promo.jpg') }}" alt="Acto de Colación">
+                </article>
+    
+                <article onclick="openModal(3)">
+                    <h3><strong>Inscripción para el Termino del Ciclo Lectivo</strong></h3>
+                    <p>Inscríbete para participar en las actividades de cierre del ciclo lectivo. ¡Asegúrate de hacerlo antes de la fecha límite!</p>
+                    <img src="{{ url_for('static', filename='dou/imagen7.jpg') }}" alt="Inscripción Cierre de Ciclo Lectivo">
+                </article>
+            </section>
+        </div>
+    
+        <!-- Modal 1 -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal(1)">&times;</span>
+                <h2>Continuamos compartiendo el éxito de la Expo Técnica 2024</h2>
+                <p><strong>Ubicación:</strong> Escuela Técnica 3139, Salta, Argentina</p>
+                <p><strong>Fecha y Hora:</strong> 15/11/2024 - 10:00</p>
+                <p>La <strong>Expo Técnica 2024</strong> es una jornada única en nuestra institución donde se exponen los proyectos destacados del año. Los estudiantes presentan sus trabajos de investigación, avances técnicos y creaciones innovadoras frente a la comunidad educativa. Este evento fomenta el espíritu de colaboración, la creatividad y el compromiso académico. Además, contamos con stands interactivos, demostraciones en vivo y actividades que muestran el esfuerzo colectivo de estudiantes y docentes. ¡Un día para celebrar el talento y el esfuerzo en nuestra comunidad educativa!</p>
+                <div class="event-video">
+                    <h2>Video del Evento</h2>
+                    <iframe width="1903" height="1200" src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftecnica3139salta%2Fvideos%2F1249449662999159%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 2 -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal(2)">&times;</span>
+                <h2>Acto de Colación 2024 🎓</h2>
+                <p><strong>Ubicación:</strong> SUM de la Escuela Técnica 3139</p>
+                <p><strong>Fecha y Hora:</strong> 20/12/2024 - 18:00</p>
+                <p>Despedimos a nuestros egresados con un emotivo acto de colación. Un momento especial para reconocer sus logros y el cierre de esta etapa educativa. ¡No te pierdas esta ceremonia llena de recuerdos y emociones!</p>
+            </div>
+        </div>
+    
+        <!-- Modal 3 -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal(3)">&times;</span>
+                <h2>Inscripción para el Termino del Ciclo Lectivo</h2>
+                <p><strong>Ubicación:</strong> Plataforma en línea</p>
+                <p><strong>Fecha Límite:</strong> 30/11/2024</p>
+                <p>Regístrate para participar en las actividades de cierre del año lectivo. Desde ceremonias de clausura hasta eventos de integración. ¡Asegúrate de inscribirte a tiempo!</p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function openModal(modalId) {
+            document.getElementById('modal' + modalId).style.display = "block";
+        }
+    
+        function closeModal(modalId) {
+            document.getElementById('modal' + modalId).style.display = "none";
+        }
+    </script>
+    
+
+    <!-- Modal para editar novedad -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Editar Evento</h2>
+            </div>
+            <form action="" method="POST">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título de la entrada" required>
+
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" placeholder="Escribe el contenido aquí" required></textarea>
+
+                <div class="date-time-container">
+                    <p>Comienzo:</p>
+                    <div>
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div>
+                        <label for="hora">Hora:</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+                </div>
+               
+                <div class="date-time-container">
+                    <p>Finalizacion:</p>
+                    <div>
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div>
+                        <label for="hora">Hora:</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+                </div>
+
+                <div class="file-container">
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*">
+                </div>
+
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir el modal
+        function openModal(articleId) {
+            document.getElementById('modal').style.display = "block";
+            // Aquí puedes cargar el contenido específico para el artículo, si es necesario
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+<footer>
+    <hr>
+    <section>
+        <h4><strong>Sobre el Blog:</strong></h4>
+        <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+    </section>
+    <section>
+        <h4><strong>Contacto</strong></h4>
+        <ul>
+            <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+</footer>
+
+</body>
+</html>

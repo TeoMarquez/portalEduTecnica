@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+       
+        main {
+            display: inline;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+     
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+
+    </style>
+
+    <main>
+        <h1>Temario del Curso de Informática y Automotor</h1>
+        
+        <h2>Ciclo Básico</h2>
+        <p>El Ciclo Básico es de nivel secundario, obligatorio, y tiene una duración de 2 años. En este ciclo, los estudiantes adquirirán conocimientos fundamentales en diversas áreas técnicas que les permitirán avanzar en su formación profesional.</p>
+        
+        <h3>Año 1</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Taller</th>
+                    <th>Contenido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Electricidad</td>
+                    <td>Introducción a los circuitos eléctricos, componentes básicos, uso de herramientas y medidas de seguridad.</td>
+                </tr>
+                <tr>
+                    <td>Hojalatería</td>
+                    <td>Trabajo con chapa metálica, técnicas de corte, moldeado y soldadura en chapa.</td>
+                </tr>
+                <tr>
+                    <td>Carpintería</td>
+                    <td>Uso de herramientas de carpintería, diseño y construcción de estructuras de madera, técnicas de ensamblaje.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Año 2</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Taller</th>
+                    <th>Contenido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Electrónica</td>
+                    <td>Estudio de circuitos electrónicos, componentes electrónicos básicos, soldadura y montaje de circuitos.</td>
+                </tr>
+                <tr>
+                    <td>Tornería</td>
+                    <td>Uso del torno, técnicas de mecanizado de piezas metálicas, precisión y ajuste de piezas.</td>
+                </tr>
+                <tr>
+                    <td>Soldadura</td>
+                    <td>Principios de la soldadura, técnicas de soldado, uso de equipos de protección y tipos de soldadura.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Ciclo Superior: Automotores</h2>
+        <p>El Ciclo Superior en Automotores ofrece una formación avanzada para aquellos interesados en el mantenimiento, diagnóstico y reparación de vehículos. Los estudiantes aprenderán sobre los sistemas más complejos del automóvil y se formarán para desempeñarse en el campo automotriz de manera profesional.</p>
+        
+        <h3>Duración: 4 años</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Año</th>
+                    <th>Contenido</th>
+                    <th>Turno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Año 1</td>
+                    <td>Fundamentos de motores, sistemas de encendido y alimentación, diagnóstico básico.</td>
+                    <td>Mañana/Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 2</td>
+                    <td>Sistemas de transmisión, suspensión y frenos, diagnóstico de fallas.</td>
+                    <td>Mañana/Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 3</td>
+                    <td>Sistemas eléctricos, electrónica automotriz, análisis de fallas electrónicas.</td>
+                    <td>Mañana/Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 4</td>
+                    <td>Normativas de seguridad, calidad en el servicio automotriz, diagnóstico avanzado y reparaciones.</td>
+                    <td>Mañana/Tarde</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Ciclo Superior: Informática</h2>
+        <p>El Ciclo Superior en Informática está orientado a la formación de profesionales en el desarrollo de software, administración de sistemas y redes. Los estudiantes aprenderán a trabajar con tecnologías modernas para diseñar, implementar y mantener soluciones informáticas en diferentes entornos.</p>
+
+        <h3>Duración: 4 años</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Año</th>
+                    <th>Contenido</th>
+                    <th>Turno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Año 1</td>
+                    <td>Fundamentos de la computacion, introducción a la gestion de archivos, introducción a la electronica</td>
+                    <td>Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 2</td>
+                    <td>Fundamentos de programación, introducción a bases de datos, desarrollo web básico</td>
+                    <td>Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 3</td>
+                    <td>Programación avanzada, bases de datos relacionales, algoritmos y estructuras de datos.</td>
+                    <td>Tarde</td>
+                </tr>
+                <tr>
+                    <td>Año 4</td>
+                    <td>Desarrollo de aplicaciones avanzadas, integración de sistemas, metodologías ágiles.</td>
+                    <td>Tarde</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script src="../control.js"></script>
+    
+</body>
+</html>

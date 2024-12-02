@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Tecnica 3</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #09e01b73;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .acerca {
+            color: #073463;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+ 
+        p {
+            margin: 1rem 0;
+            line-height: 1.6;
+            color: #555; 
+            font-size: 1rem; 
+            text-align: justify;
+            transition: color 0.3s ease;
+            text-indent: 2rem; /* Sangría en la primera línea */
+            margin-left: 2rem; /* Aumenta el margen izquierdo */
+        }
+
+        footer p{
+            color: white;
+        }
+    </style>
+
+    <main>
+        <div>
+            <h1 class="acerca">Acerca de Nosotros</h1>
+            
+            <section>
+                <h2>Misión</h2>
+                <p>
+                    En la Escuela Técnica Nº 3139 "Gral. Martín M. de Güemes", nuestra misión es formar profesionales con una sólida base técnica en los campos de la informática y los automotores. Nos comprometemos a ofrecer un entorno educativo accesible, práctico y de calidad, donde los estudiantes adquieran no solo los conocimientos técnicos necesarios para enfrentar los desafíos del mundo laboral, sino también las competencias que les permitan desarrollarse como individuos responsables, innovadores y éticos.
+                </p>
+                <p>
+                    Nuestro objetivo es que cada egresado se convierta en un técnico altamente capacitado, preparado para contribuir de manera significativa a la industria tecnológica y automotriz. A través de un enfoque pedagógico centrado en la práctica y la resolución de problemas reales, buscamos que nuestros estudiantes no solo comprendan la teoría, sino que también aprendan a aplicar sus conocimientos en proyectos concretos que reflejen los avances y necesidades del sector.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Visión</h2>
+                <p>
+                    Nos proyectamos como una institución educativa de excelencia, reconocida tanto a nivel local como nacional, por nuestra capacidad para formar técnicos altamente especializados en informática y automotores. Queremos ser un referente en la enseñanza técnica, brindando a nuestros estudiantes las herramientas más actualizadas y las metodologías pedagógicas más innovadoras, adaptadas a las demandas del mundo actual.
+                </p>
+                <p>
+                    Nuestra visión es que, al finalizar su formación, nuestros egresados sean capaces de enfrentar los retos profesionales con una actitud emprendedora y resolutiva, dominando las últimas tecnologías en sus respectivas áreas. Además, nos esforzamos por mantener un ambiente educativo inclusivo y dinámico, que fomente el trabajo en equipo y el desarrollo de habilidades complementarias como la comunicación efectiva, la creatividad y la gestión de proyectos.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Valores</h2>
+                    <p>
+                        <strong>Excelencia:</strong> Buscamos la calidad en todo lo que hacemos, tanto en la formación académica como en las actividades extracurriculares. La excelencia es el pilar de nuestro trabajo, y nos esforzamos por asegurar que cada estudiante reciba una educación integral, que lo prepare para destacarse en su campo profesional.
+                    </p>
+                    <p>
+                        <strong>Compromiso:</strong> Estamos profundamente comprometidos con el éxito de nuestros estudiantes. Nos dedicamos a ofrecer un entorno educativo que les permita desarrollarse plenamente, no solo en el aspecto técnico, sino también en su crecimiento personal y profesional. Fomentamos el compromiso con los valores, la ética laboral y la responsabilidad social.
+                    </p>
+                    <p>
+                        <strong>Innovación:</strong> En un mundo cada vez más tecnológico y cambiante, la innovación es clave. Promovemos la adopción de nuevas tecnologías y métodos de enseñanza que permitan a nuestros estudiantes estar a la vanguardia del conocimiento en sus áreas. Les enseñamos a ser innovadores, a pensar críticamente y a resolver problemas de manera creativa y eficiente.
+                    </p>
+                    <p>
+                        <strong>Responsabilidad:</strong> Creemos en la importancia de formar técnicos responsables, no solo con sus conocimientos, sino también con sus actitudes y decisiones. Fomentamos la ética profesional, el respeto por los demás y el trabajo colaborativo, entendiendo que la responsabilidad es esencial para el éxito en el mundo laboral.
+                    </p>
+                    <p>
+                        <strong>Trabajo en equipo:</strong> Sabemos que el trabajo en equipo es fundamental tanto en la educación como en la vida profesional. Promovemos un entorno de colaboración donde los estudiantes aprenden a trabajar juntos, compartiendo ideas y recursos para lograr los objetivos comunes. El trabajo en equipo les prepara para enfrentar los desafíos del mundo laboral de manera más efectiva.
+                    </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script src="../control.js"></script>
+
+</body>
+</html>
+                

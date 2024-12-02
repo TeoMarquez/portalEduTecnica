@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+   
+        main {
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline;
+            width: 100%;
+        }
+      
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+            text-align: center;
+        }
+     
+        details {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            text-align: center;
+
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+
+        }
+
+    </style>
+
+    <main>
+        <div>
+            <h1>Novedades</h1>
+           <p>
+                Actividades extracurriculares y eventos tecnológicos
+           </p>
+           <p>
+                Actualización de horarios para talleres prácticos
+           </p>
+           <p>
+               Nueva modalidad de clases virtuales
+           </p>
+            
+        </div>
+
+        <div>
+            <h1>Preguntas Frecuentes</h1>
+
+            <details>
+                <summary>¿Cómo inscribirme en los cursos extracurriculares?</summary>
+                <p>Para inscribirte en los cursos extracurriculares, visita la sección "Cursos" y selecciona la opción "Inscripción a cursos".</p>
+            </details>
+
+            <details>
+                <summary>¿Cómo puedo acceder a las clases en línea?</summary>
+                <p>Las clases en línea se encuentran disponibles en nuestra plataforma de aprendizaje. Debes iniciar sesión con tu cuenta institucional para acceder a ellas.</p>
+            </details>
+
+            <details>
+                <summary>¿Qué hacer si tengo problemas con los equipos o herramientas del taller?</summary>
+                <p>Si tienes problemas con los equipos o herramientas, por favor contacta al coordinador del taller a través del correo electrónico o acude directamente a la oficina administrativa.</p>
+            </details>
+        </div>
+
+        <div>
+            <h1>Temas Relacionados</h1>
+            
+                <p>
+            
+                    Normas y reglamentos de los talleres
+                </p>
+                <p>
+            
+                    Política de privacidad y seguridad de datos
+                </p>
+                <p>
+                    Guía de inicio rápido para nuevos estudiantes
+            
+                </p>
+                <p>
+                  Manuales de equipos y herramientas
+                </p>
+            
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script src="../control.js"></script>
+    
+</body>
+</html>

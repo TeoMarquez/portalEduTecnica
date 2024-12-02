@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Curso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        main {
+            max-width: 100%;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline;
+        }
+        h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .module-container {
+            display: flex;
+            align-items: center; /* Centra verticalmente los elementos */
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-text {
+            flex: 1; /* El texto ocupa el espacio restante */
+            margin-right: 20px; /* Espacio entre el texto y la imagen */
+        }
+
+        .module-image img {
+            width: 250px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 8px; /* Bordes redondeados opcionales */
+            max-width: 100%; /* Asegura que la imagen no se desborde */
+        }
+     
+    </style>
+
+    <main>
+        <div>
+            <h1>Cisco Competencias Blandas - Networking Academy</h1>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 1:</strong> Habilidades de Comunicación</p>
+            <p>- La importancia de la comunicación efectiva en el ámbito profesional</p>
+            <p>- Técnicas de escucha activa y asertiva</p>
+            <p>- Presentaciones eficaces y manejo de audiencias</p>
+        </div>
+
+        <div class="module-container">
+            <div class="module-text">
+                <p><strong>Módulo 2:</strong> Trabajo en Equipo</p>
+                <p>- Principios de trabajo colaborativo</p>
+                <p>- Resolución de conflictos y toma de decisiones grupales</p>
+                <p>- Liderazgo y dinámicas de grupo</p>
+            </div>
+            <div class="module-image">
+                <img src="{{ url_for('static', filename='recursos nuevos/logos y backs/logo cisco.png') }}" alt="Trabajo en Equipo">
+            </div>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 3:</strong> Resolución de Problemas</p>
+            <p>- Estrategias de análisis y toma de decisiones</p>
+            <p>- Creatividad y pensamiento crítico</p>
+            <p>- Innovación en la resolución de problemas laborales</p>
+        </div>
+
+        <div>
+            <h1>Seguridad e Higiene en la Industria - Caterpillar</h1>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 1:</strong> Introducción a la Seguridad en el Trabajo</p>
+            <p>- Conceptos básicos sobre seguridad industrial</p>
+            <p>- Normativas y estándares internacionales</p>
+            <p>- Identificación y evaluación de riesgos laborales</p>
+        </div>
+
+        <div class="module-container">
+            <div class="module-text">
+                <p><strong>Módulo 2:</strong> Equipos de Protección Personal</p>
+                <p>- Tipos de equipos de protección personal (EPP)</p>
+                <p>- Uso adecuado de EPP según el tipo de tarea</p>
+                <p>- Mantenimiento y cuidado de los equipos de protección</p>
+            </div>
+            <div class="module-image">
+                <img src="{{ url_for('static', filename='recursos nuevos/logos y backs/caterpilar.png') }}" alt="Trabajo en Equipo">
+            </div>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 3:</strong> Manejo Seguro de Equipos Pesados</p>
+            <p>- Procedimientos para operar maquinaria de manera segura</p>
+            <p>- Prevención de accidentes con equipos pesados</p>
+            <p>- Protocolos de emergencia y evacuación</p>
+        </div>
+
+        <div>
+            <h1>Curso de Matemática Preuniversitaria - Técnica 3</h1>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 1:</strong> Números Reales y Operaciones Básicas</p>
+            <p>- Propiedades de los números reales</p>
+            <p>- Operaciones con números reales</p>
+            <p>- Resolución de problemas básicos</p>
+        </div>
+
+        <div class="module-container">
+            <div class="module-text">
+                <p><strong>Módulo 2:</strong> Álgebra y Ecuaciones</p>
+                <p>- Ecuaciones lineales y cuadráticas</p>
+                <p>- Sistemas de ecuaciones</p>
+                <p>- Teoría de polinomios</p>
+            </div>
+            <div class="module-image">
+                <img src="{{ url_for('static', filename='dou/logo de la tec.jpg') }}" alt="Resolución de Problemas">
+            </div>
+        </div>
+
+        <div class="module-container">
+            <p><strong>Módulo 3:</strong> Geometría y Trigonometría</p>
+            <p>- Propiedades geométricas</p>
+            <p>- Teorema de Pitágoras</p>
+            <p>- Funciones trigonométricas</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+</body>
+</html>

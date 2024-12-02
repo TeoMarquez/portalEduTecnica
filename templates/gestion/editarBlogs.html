@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Blogs - Portal EduTecnica3139</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        article{
+            background-color: #fbf6f6e8;
+        }
+        .blog-entry {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fefefe;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        .blog-entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-entry h2 {
+            margin-top: 0;
+            color: #004466;
+        }
+
+        .blog-entry p {
+            text-align: justify;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .modal-header {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+    
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilo del formulario dentro del modal */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        input[type="time"],
+        input[type="file"] {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="file"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .date-time-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .date-time-container div {
+            width: 48%;
+        }
+
+        .file-container {
+            margin-top: 1rem;
+        }
+
+        .file-container input[type="file"] {
+            padding: 1rem;
+            background-color: #f0f0f0;
+        }
+
+        .preview-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info">
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('gestion.menuGestion') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       <h1> Editar blogs</h1>
+        <main>
+            <article onclick="openModal(1)">
+                <h3><strong>Bienvenido al Portal Educativo de la Escuela Técnica 3139</strong></h3>
+                <p>En la Escuela Técnica 3139 nos especializamos en la formación integral de estudiantes en diversas áreas técnicas. Nuestra misión es proporcionar educación de calidad con un enfoque práctico, preparando a nuestros alumnos para afrontar los desafíos del mundo laboral con conocimientos y habilidades actualizadas.</p>
+                <p>Explora nuestra plataforma para conocer más sobre nuestras iniciativas, proyectos y eventos escolares. Únete a nuestra comunidad educativa y forma parte de la evolución del conocimiento técnico.</p>
+            </article>
+        
+            <article onclick="openModal(2)">
+                <h3><strong>Últimas Noticias del Colegio</strong></h3>
+                <p>"Los estudiantes de la carrera de Electrónica presentan sus proyectos finales. Un evento donde muestran sus logros y aplicaciones prácticas de lo aprendido durante el año."</p>
+            </article>
+        
+            <article onclick="openModal(3)">
+                <h3><strong>Consejos para el Éxito Académico</strong></h3>
+                <p>"Descubre cómo organizar tus estudios, manejar tus tiempos y mantener un equilibrio entre las clases teóricas y prácticas. Estos consejos te ayudarán a obtener los mejores resultados en tus exámenes y proyectos."</p>
+            </article>
+        
+            <article onclick="openModal(4)">
+                <h3><strong>Concurso de Innovación en Tecnología</strong></h3>
+                <p>"Este año, los estudiantes de la Escuela Técnica 3139 participan en el concurso anual de innovación tecnológica, presentando sus propios proyectos y soluciones creativas para mejorar nuestra comunidad."</p>
+            </article>
+        
+            <article onclick="openModal(5)">
+                <h3><strong>Proyecto Destacado: Paneles Solares para la Escuela</strong></h3>
+                <p>"Los estudiantes de la especialidad de Electrónica han diseñado e implementado un sistema de paneles solares para proveer energía a diversas áreas de la escuela. Un paso importante hacia la sostenibilidad."</p>
+            </article>
+        </main>
+        
+        
+
+        <!-- Modal para editar novedad -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <div class="modal-header">
+                    <h2>Editar Novedad</h2>
+                </div>
+                <form action="" method="POST">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título de la entrada" required>
+
+                    <label for="contenido">Contenido:</label>
+                    <textarea id="contenido" name="contenido" placeholder="Escribe el contenido aquí" required></textarea>
+
+                    <div class="date-time-container">
+                        <div>
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                        <div>
+                            <label for="hora">Hora:</label>
+                            <input type="time" id="hora" name="hora" required>
+                        </div>
+                    </div>
+
+                    <div class="file-container">
+                        <label for="imagenes">Subir imágen:</label>
+                        <input type="file" id="imagenes" name="imagenes" accept="image/*" multiple>
+                    </div>
+
+                    <div class="preview-container" id="imagePreview"></div>
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Para mostrar una vista previa de las imágenes seleccionadas
+        document.getElementById('imagenes').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = '';
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = document.createElement('img');
+                    img.src = event.target.result;
+                    img.style.width = '100px';
+                    img.style.marginRight = '10px';
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

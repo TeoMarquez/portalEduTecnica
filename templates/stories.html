@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras redes</title>
+    <!-- Usamos url_for para generar la ruta del CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <style>
+
+        .blog h1, .blog p{
+            color: white;
+        }
+        body{
+            background-image: url("recursos nuevos/logos y backs/white.jpg");
+        }
+
+        section{
+            margin-top: 110px;
+        }
+
+        main h1 {
+            text-align: center;
+            margin-top: 40px; /* Ajusta según el espacio que desees entre el encabezado y el resto del contenido */
+        }
+
+    </style>
+
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('stories') }}">Portal Educativo</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('curso') }}">Modulos</a></li>
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('mapping') }}">Orientaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+            <h1>Nuestras Redes:</h1>
+        <section class="timeline">
+            
+            <div class="timeline-item" data-aos="fade-up" hidden>
+            </div>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <a href="https://tecnica3139-salta.edu.ar/aulavirtual/login/index.php" class="timeline-image" data-aos="zoom-in">
+                        <img src="{{ url_for('static', filename='dou/logo de la tec.jpg') }}" alt="Resolución de Problemas">
+                    </a>
+                    <div class="timeline-text">
+                        <a href="https://tecnica3139-salta.edu.ar/aulavirtual/login/index.php" target="_blank">Plataforma Educativa</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item" data-aos="fade-up" hidden>
+            </div>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <a href="https://www.facebook.com/tecnica3139salta" class="timeline-image" data-aos="zoom-in">
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/usuario2.jpg') }}" alt="">
+                    </a>
+                    <div class="timeline-text">
+                        <a href="https://www.facebook.com/tecnica3139salta" target="_blank">Nuestro Facebook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" hidden>
+            </div>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <a href="https://www.youtube.com/@tecnicaGralMartinMigueldeGueme/" class="timeline-image" data-aos="zoom-in">
+                        <img src="{{ url_for('static', filename='recursos nuevos/posts y usuarios/usuario2.jpg') }}" alt="">
+                    </a>
+                    <div class="timeline-text">
+                        <a href="https://www.youtube.com/@tecnicaGralMartinMigueldeGueme/" target="_blank">Nuestro Canal de Youtube</a>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+    </main>   
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="control.js"></script>
+    
+    </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Blogs - Portal EduTecnica3139</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        button {
+            background-color: #004466;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #006699;
+        }
+
+        .date-time-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .date-time-container div {
+            flex: 1;
+            min-width: calc(50% - 1rem);
+        }
+
+        .file-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-info"> 
+                <a href="{{ url_for('index') }}">
+                    <h1>Portal EduTecnica3139</h1>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('guides') }}">Guías</a></li>
+                <li><a href="{{ url_for('events') }}">Eventos</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('gestion.menuGestion') }}">Gestión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Subir nueva entrada de Evento</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del evento" required>
+
+            <label for="contenido">Contenido:</label>
+            <textarea id="contenido" name="contenido" placeholder="Escribe el contenido aquí" required></textarea>
+
+            <div class="date-time-container">
+                <div>
+                    <label for="fecha_inicio">Fecha de inicio:</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </div>
+                <div>
+                    <label for="hora_inicio">Hora de inicio:</label>
+                    <input type="time" id="hora_inicio" name="hora_inicio" required>
+                </div>
+                <div>
+                    <label for="fecha_termino">Fecha de término:</label>
+                    <input type="date" id="fecha_termino" name="fecha_termino" required>
+                </div>
+                <div>
+                    <label for="hora_termino">Hora de término:</label>
+                    <input type="time" id="hora_termino" name="hora_termino" required>
+                </div>
+            </div>
+
+            <!-- Sección para subir varias imágenes -->
+            <div class="file-container">
+                <label for="imagenes">Subir imágenes (puedes seleccionar varias):</label>
+                <input type="file" id="imagenes" name="imagenes" accept="image/*" multiple>
+            </div>
+
+            <button type="submit">Subir Entrada</button>
+        </form>
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <h4><strong>Sobre el Blog:</strong></h4>
+            <p> <strong>Leonardo Juarez - Alex Lera</strong> 2024. Todos los derechos reservados.</p>
+        </section>
+        <section>
+            <h4><strong>Contacto</strong></h4>
+            <ul>
+                <li><a href="mailto:msmarquez114@gmail.com">leonahuel.ok@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardo-juarez-4b7920315/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+</html>
