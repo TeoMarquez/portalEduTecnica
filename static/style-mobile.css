@@ -1,0 +1,58 @@
+/* Media query para pantallas más pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+    
+    header {
+        padding: 1rem;
+    }
+
+    .header-info h1 {
+        font-size: 22px; /* Ajuste para pantallas más pequeñas */
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+        display: grid; /* Usamos grid para que los elementos se acomoden en un layout más organizado */
+        grid-template-columns: repeat(2, 2fr); /* Dos columnas con igual ancho */
+        gap: 0.5rem; /* Espacio entre las celdas del grid */
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0; /* Quitamos el padding de la lista */
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0; /* Eliminamos el margen para evitar espacio adicional */
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 0.8rem;
+        display: block; /* Hace que cada enlace ocupe el 100% del espacio en su celda */
+        text-align: center; /* Centra el texto */
+        background-color: #444; /* Fondo para que sea visible en dispositivos pequeños */
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        background-color: #555; /* Cambia el fondo al pasar el ratón */
+    }
+}
+
+/* Ajustes para pantallas aún más pequeñas (máximo 480px) */
+@media (max-width: 480px) {
+    .header-info h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        grid-template-columns: 1fr; /* En pantallas más pequeñas, volvemos a una sola columna */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}

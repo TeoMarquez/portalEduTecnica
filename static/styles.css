@@ -1,0 +1,536 @@
+/* Reseteo básico de márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f8f8ff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo del header */
+header {
+    background-color: #0ca64e;
+    color: #fff;
+    padding: 1rem;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Todo acerca del titulo del blog */
+
+.header-info {
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-info h1 {
+    margin-bottom: 0.5rem;
+}
+
+.header-info a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 30px; /* Asegura que el tamaño de la letra no cambie */
+}
+
+.header-info a::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    background: linear-gradient(90deg, #165a1f, #000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    width: 0;
+}
+
+.header-info a:hover::before {
+    width: 100%;
+}
+
+.header-info a span {
+    display: inline-block;
+    transition: color 0.5s ease; /* Añade una transición suave */
+}
+
+.header-info a:hover span {
+    color: #000;
+}
+
+
+.header-info p {
+    margin: 0.5rem 0;
+}
+
+
+    /* Estilo del nav */
+nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem; /* Espacio entre los elementos */
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    color: #fff;
+}
+    /* Fin estilo del nav */
+
+/* Estilo del dropdown (si es necesario) */
+nav ul li:hover .dropdown-menu {
+    display: block;
+}
+
+/* Estilo del main */
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+    /* Estilo de articulos (index)*/
+
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    text-decoration: none;
+}
+
+article {
+    background-color: #d5d5d5e8;
+    border: 2px solid #0f0f0f;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+article h3 {
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+article h3 a {
+    color: #276c3e;
+    text-decoration: none;
+}
+
+article h3 a:hover {
+    text-decoration: underline;
+}
+
+article a {
+    color: inherit; /* Hereda el color del texto del artículo */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+article h3 a {
+    color: inherit; /* Hereda el color del texto del h3 */
+}
+
+article:hover {
+    transform: translateY(-5px);
+    transform: scale(1.02);
+    box-shadow: 0 10px 100px rgba(32, 23, 23, 0.2);
+    background-color: #47464681;
+}
+
+article:hover p,
+article:hover h3 {
+    color: white;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 800px; /* O el ancho que prefieras */
+}
+
+.blog {
+    text-align: center;
+    margin-bottom: 2rem; /* Espacio entre la introducción y los artículos */
+}
+
+    /* Fin estilo articulos */
+
+/* Estilo del footer */
+footer {
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+footer hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 1rem 0;
+}
+
+footer section {
+    margin-bottom: 1rem;
+}
+
+footer h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+footer p, footer ul {
+    margin: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+    /* FIn estilo del footer*/
+
+
+    /* TimeLine de stories.html */
+    
+    .timeline {
+        position: relative;
+        padding: 40px 0;
+        display: flex; /* Usamos flexbox para los elementos en línea */
+        flex-wrap: wrap; /* Para que los items no se desborden */
+        justify-content: center; /* Centrar los items */
+    }
+    
+    .timeline::before {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        height: 100%;
+        border-left: 2px solid #333;
+        width: 0;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        position: relative;
+        background: #ffffff; /* Fondo oscuro para cada item */
+        margin: 20px;
+        height: 370px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        width: 40%; /* Menor porcentaje para que los items se alineen uno al lado del otro */
+        transition: height 0.3s ease, transform 0.3s ease; /* Transición para el hover */
+    }
+
+    .timeline-content {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    
+    .timeline-text {
+        margin: 0 20px;
+        flex-grow: 1; /* Hace que el texto ocupe el espacio disponible */
+    }
+    
+    .timeline-image img {
+        margin-left: 1%;
+        margin-top: 2.5%;
+        height: 350px;
+        width: 350px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra de la imagen */
+        transition: transform 0.3s ease;
+    }
+    
+    .timeline-item:hover {
+        transform: scale(1.01);
+        filter: brightness(0.7) contrast(1.2); /* Oscurece la imagen y aumenta el contraste */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Fin TimeLine stories.html */
+
+
+    /* Inicio guides.html */
+/* Estilos para la introducción */
+    .intro {
+        flex: 1;
+        padding: 20px;
+        max-width: 70%; /* Limita el ancho máximo */
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .intro h2 {
+        margin-top: 20px;
+    }
+
+    /* Estilos para el aside FAQ */
+    .faq {
+        position: -webkit-sticky; /* Para Safari */
+        background-color: #333;
+        width: 300px;
+        position: sticky;
+        top: 1rem;
+        max-height: 60vh;
+        overflow-y: auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq h2 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .faq ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .faq li {
+        margin-bottom: 10px;
+    }
+
+    .faq a {
+        text-decoration: none;
+        color: rgba(244, 227, 227, 0.876);
+        font-weight: bold;
+    }
+
+    .faq a:hover {
+        color: #007bff;
+    }
+
+    /* Estilos para las tablas de comparación */
+    .table-container {
+        overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    thead th {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+    }
+
+    tbody td {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even) td {
+        background-color: #e9e9e9;
+    }
+
+    tbody tr:hover td {
+        filter: brightness(0.7) contrast(1.2); /* Oscurece la imagen y aumenta el contraste */
+    }
+
+
+    /* Fin guides.html */
+
+    .event-highlight {
+        padding: 20px;
+        background-color: #f4f4f4;
+        margin-bottom: 20px;
+        max-width: 75%; /* Limita el ancho para que se centre */
+        margin: 0 auto; /* Centra el contenedor */
+    }
+    
+    .event-highlight h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .highlight-content {
+        display: flex;
+        flex-direction: column;;
+        gap: 20px;
+    }
+    
+    .event-video iframe {
+        width: 100%;
+        border: none;
+    }
+    
+    .event-details {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Estilo para el aside de eventos */
+    aside.upcoming-events {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 300px; /* Ajusta el ancho según sea necesario */
+        padding: 20px;
+    }
+    
+    aside.upcoming-events h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .event-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    
+    .event-card img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .event-card a {
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease;
+    }
+
+    .event-card a:hover {
+        transform:scale(1.05);
+        filter: brightness(0.7) contrast(1.2); /* Oscurece la imagen y aumenta el contraste */
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card-content h3 {
+        margin-top: 0;
+    }
+    
+    .card-content a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+    
+    .card-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* fin de events.html */
+
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  width: 820px;
+  height: 340px;
+  display: flex;
+  gap: 10px;
+  margin-inline: 50px;
+  margin-bottom: 50px;
+}
